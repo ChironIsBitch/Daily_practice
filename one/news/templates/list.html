@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>列表页</title>
+</head>
+<body>
+总共:{{ list|length }}篇
+<hr>
+{% autoescape off %}
+{% for x in list %}
+    文章: <a href="{{ x.id }}">{{ x.title }}</a>
+    时间:{{ x.l_time|date:"m-d G:i" }}
+    长度:{{ x.content|safe|slice:'30'}}
+
+    <br>
+    <hr>
+{% endfor %}
+{% endautoescape %}
+
+</body>
+</html>
